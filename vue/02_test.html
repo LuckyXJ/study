@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDoList JQuery</title>
+    <script src="./jquery-3.3.1.js"></script>
+</head>
+<body>
+    <!-- m:model 模型层 , v:view 视图层, p:presenter 控制层 -->
+    <div>
+        <input id="input" type="text">
+        <button id="btn">提交</button>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        function Page(){
+            /* jQuery.extend(object);为扩展jQuery类本身.为类添加新的方法 */
+            $.extend(Page.prototype,{
+                init: function(){
+                this.bindEvents();
+            },
+            bindEvents: function(){
+                var btn = $('#btn');
+                /* 强制设置函数的作用域，让this指向obj而不是#test对象。 */
+                btn.on('click',$.proxy(this.handleBtnClick,this));
+            },
+            handleBtnClick : function(){
+                    /* 添加下列语句可提高代码性能 */
+                    var inputElem = $('#input') 
+                    var inputValue = inputElem.val();
+                    var ulElem = $('#list');
+                    ulElem.append('<li>' +inputValue+'</li>');
+                    $("#input").val('');
+                }
+            })
+        }
+        
+        var page = new Page();
+        page.init();
+    </script>
+</body>
+</html>

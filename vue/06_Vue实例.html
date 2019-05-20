@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue实例</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 绑定‘handleClicks事件 -->
+        <div @click = 'handleClick'>
+            {{massage}}
+        </div>
+        <item></item>
+    </div>
+
+    <script>
+        Vue.component('item',{
+            template:'<div>hello item</div>'
+        })
+        /* 创建的是Vue的根实例，Vue中的每一个组件也是Vue实例 ,一个Vue的项目是由很多Vue实例（组件）组合成的*/
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                massage: 'Hello World!'
+            },
+            /* 在Vue实例中的methods中添加handleClick方法 */
+            methods: {
+                handleClick: function(){
+                    alert('你好，世界')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

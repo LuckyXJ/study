@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animate.css库</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="./animate.css">
+    <style>
+            .fade-enter,
+            .fade-leave-to{
+                opacity: 0;
+            }
+            .fade-enter-active,
+            .fade-leave-active{
+                transition:opacity 2s;
+            }
+        </style>
+</head>
+<body>
+    <div id="root">
+        </transition>
+        <!-- 添加appear可以在刷新之时就只有一次淡入动画 ，
+            自定义animate.css库动画持续时间-->
+        <transition 
+                    :duration='{enter:3000 ,leave:3000}'
+                    name='fade'
+                    appear
+                    enter-active-class='animated swing fade-enter-active' 
+                    leave-active-class='animated heartBeat fade-leave-active'
+                    appear-active-class='animated swing'>
+            <div v-show='show'>hello world</div>
+        </transition>
+        <button @click='handleClick'>toggle</button>
+    </div>
+    
+
+   <script>
+       var vm =new Vue({
+           el:'#root',
+           data:{
+               show:true
+           },
+           methods:{
+               handleClick:function(){
+                    this.show = this.show == true?false:true
+               }
+           }
+       })
+   </script>
+</body>
+</html>

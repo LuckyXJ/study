@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- template占位符，产生作用但不渲染 -->
+        <template v-for = '(content,index) of list'
+             :key = 'content.id'>
+            <div>{{content.text}}----{{index}}</div>
+            <span>{{content.text}}</span>
+        </template>
+    </div>
+
+    <script>
+        // 数组变异方法 push尾插  pop尾删  shift头删  unshift头插  splice增减项  sort排序  reverse倒序
+            /*如vm.list.push({id:'001' , text: '1'}) */
+        // 要对数组内容进行更改，同时视口层同步改变的量，不能用下标方法，用以上几种方法  或 直接改变list内的内容 或set方法
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                list:[
+                    {
+                        id:'0101201',
+                        text:'hello'
+                    },{
+                        id:'0101202',
+                        text: 'welcome'
+                    },{
+                        id:'0101203',
+                        text: 'to'
+                    },{
+                        id:'0101204',
+                        text: 'China'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

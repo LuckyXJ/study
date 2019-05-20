@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS动画与velocity.js</title>
+    <script src="./vue.js"></script>
+    <script src="./velocity.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- js实现动画利用钩子函数，详见vue官网API -->
+        <transition
+                    name='fade'
+                    @before-enter='handleBeforeEnter'
+                    @enter='handleEnter'
+                    @after-enter='handleAfterEnter'
+        >
+            <div v-if='show'>hello world</div>
+        </transition>
+        <button @click='handleClick'>toggle</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#root',
+            data:{
+                show:true
+            },
+            methods:{
+                handleClick:function(){
+                    this.show = !this.show
+                },
+                handleBeforeEnter:function(el){
+                    // el.style.color='red';
+                    el.style.opacity = 0;
+                },
+                // 动画执行完毕手动调用done函数，以告知该动画执行完毕
+                handleEnter:function(el,done){
+                    // setTimeout(()=>{
+                    //     el.style.color='green'
+                    // },2000)
+
+                    // setTimeout(()=>{
+                    //     done()
+                    // },4000)
+
+                    Velocity(el,{opacity:1},{duration:2000})
+                },
+                handleAfterEnter:function(el){
+                    el.style.color ='black'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

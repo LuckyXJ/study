@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板语法</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 以下语法都可以写js表达式，不仅仅是变量 -->
+        <div>{{name}}</div>
+        <div v-text='name +" dell"'></div>
+        <div v-html='name'></div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: '<h1>Dell</h1>'
+            }
+        })
+    </script>
+
+    <!-- ************************ -->
+    <!-- <div id="app">
+        {{name}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'Dell'
+            }
+        })
+    </script> -->
+</body>
+</html>

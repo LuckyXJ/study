@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给组件绑定原生监听事件</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- 方法一 -->
+    <div id="app">
+        <item @click.native ='handleClickOne'></item>
+    </div>
+
+    <script>
+        Vue.component('item',{
+            template: '<div>Hello world</div>'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            methods:{
+                handleClickOne:function(){
+                    alert('handleClick-one')
+                }
+            }
+        })
+    </script>
+
+
+    <!-- 触发自定义事件的方法二****************************** -->
+    <!-- 事件流程： 子组件模板绑定了click事件，点击后触发handleChildClick事件，通过 $emit 向外触发父组件click事件，
+    父组件监听click事件，然后触发handleClick方法，弹出“handleClick” -->
+    <div id="root">
+        <child @click ='handleClick'></child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            template: "<div @click = 'handleChildClick'>Child</div>",
+            methods:{
+                handleChildClick: function(){
+                    this.$emit('click') 
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: '#root',
+            methods:{
+                handleClick:function(){
+                    alert('handleClick')
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>

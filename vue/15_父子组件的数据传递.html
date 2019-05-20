@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件的数据传递</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- vue中父组件向子组件传值是通过属性的形式来传递的 -->
+        <counter :count='0' @inc='handleIncrease'></counter>
+        <counter :count='1' @inc='handleIncrease'></counter>
+        <div>{{total}}</div>
+    </div>
+
+    <script>
+        var counter = {
+            props: ['count'],
+            /* 单向数据流：子组件可以接收父组件传来的参数，但不能直接改变他，所以将其复制另存一份赋值给number，
+            后续有需要操作参数则通过number操作即可 */
+            data: function(){
+                return{
+                    number: this.count,
+                }
+            },
+            template: "<div @click='handleClick'>{{number}}</div>",
+            // 子组件向父组件传值通过事件的触发方式
+            methods:{
+                handleClick:function(){
+                    this.number += 2;
+                    // 第二个参数是指告诉父组件每次点击增加的量
+                    this.$emit('inc',2)
+                }
+            }
+        }
+
+        var vm = new Vue({
+            el: '#root',
+            // 根实例的data不需要写成函数形式
+            data:{
+                total:1
+            },
+            components: {
+                counter: counter,
+            },
+            methods:{
+                handleIncrease:function(step){
+                    this.total += step
+                }
+            }
+        })
+    </script>
+</body>
+</html>

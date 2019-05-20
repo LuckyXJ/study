@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue实例生命周期函数</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- 挂载点 -->
+    <div id="app"></div>
+
+    <script>
+        // 生命周期函数就是Vue实例在某一时间点会自动执行的函数
+        var vm = new Vue({
+            el: '#app',  
+            /* 若没有template，则会将el外层的HTML当成模板渲染 */
+            template: '<div>hello world</div>',
+            /* beforeCreate函数无需额外触发就能在控制台输出“beforeCreate” */
+            beforeCreate: function(){
+                console.log('beforeCreate');
+            },
+            created: function(){
+                console.log('created');
+            },
+            /* 有template模板后，在模板挂载到页面前执行的函数 */
+            beforeMount: function(){
+                console.log('beforeMount');
+            },
+            /* 在模板挂载到页面之后执行的函数 */
+            mounted: function(){
+                console.log('mounted');
+            }
+        })
+    </script>
+
+    <!-- ************************************ -->
+    <!-- 等价于以上写法，同可以显示hello world -->
+    <!-- <div id="app">hello world</div>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+        })
+    </script> -->
+</body>
+</html>

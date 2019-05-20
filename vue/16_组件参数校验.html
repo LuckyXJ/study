@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件参数校验与非props特性</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 传number或者对象的话要写成：content -->
+        <child content = 'hello world' ></child>
+    </div>
+
+    <script>
+        Vue.component('child',{ 
+            // 子组件对父组件传来的参数要做约束时，比如只能传字符串，就用对象写法,下面写法数字与字符串都可
+            /* props特性：父组件传入content属性，而子组件又刚好声明了content属性，产生一种对应关系 ，
+            并且可以通过差值表达式获取属性值，该属性不会在dom上显示*/
+            /* 非props特性：父组件传了属性，但是子组件没相应声明 ；该属性会展示在子组件的最外层HTML标签里*/
+            props:{
+                // content: [Number , String]
+                content: {
+                    type:String,
+                    required : true,/* true表示父组件必须传content属性给子组件 */
+                    default: 'default value',/* 若上面值为false，且父组件没有传属性，则显示默认参数 */
+                    validator: function(value){
+                        /*  校验父组件所传值是否为长度大于5的字符串（字符串在type中要求了），并返回布尔值*/
+                        return (value.length > 5)  
+                    },
+                }
+            },
+            template: '<div>{{content}}</div>'
+        })
+
+        var vm = new Vue({
+            el: '#root',
+        })
+    </script>
+</body>
+</html>

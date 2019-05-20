@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件渲染</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if的show变量值为false，则移除这个 dom元素-->
+        <div v-if= 'show'>
+            {{message}}
+        </div>
+        <div v-else>bye world</div>
+
+        <!-- ******************************* -->
+        <!-- v-show的show变量为false，dom元素已存在，但是display属性被自动设置成了false -->
+        <!-- <div v-show= 'show'>
+            {{message}}
+        </div> -->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: false,
+                message:'hello world',
+            }
+        })
+    </script>
+</body>
+</html>

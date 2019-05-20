@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象循环</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for='(item ,key ,index) of userInfo'>
+            {{item}}---{{key}}---{{index}}
+        </div>
+    </div>
+
+    <script>
+        // 通过改变对象的引用或 set的方式往对象内加内容，页面会同步变化
+        // 全局写法 vue.set 或 实例写法 vm.$set，如vm.$set(vm.userInfo, 'address', 'beijing')
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userInfo: {
+                    name:'Dell',
+                    age: 28,
+                    gender: 'male',
+                    salary: 'secret'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>关于key</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 由于vue会尽可能的复用组件，所以当show=true时，input标签不会重新加载，
+            因此会保留上一次输入内容，key可以让vue区分两个相同的标签，从而不复用 -->
+        <div v-if = 'show'>
+            用户名：<input type="text"/ :key = 'userNama'>
+        </div>
+        <div v-else>
+            邮箱地址：<input type="email" :key = 'emailAddress'/>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                show: false,
+            }
+        })
+    </script>
+</body>
+</html>

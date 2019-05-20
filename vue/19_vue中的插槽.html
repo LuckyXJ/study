@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue插槽(slot)</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 在父组件给子组件添加dom元素，子组件要通过slot插槽来接收 -->
+        <child>
+            <h1></h1>
+        </child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            template:'<div><p>hello</p><slot></slot>默认内容</div>'
+        })
+
+        var vm = new Vue({
+            el: '#root',
+        })
+    </script>
+</body>
+</html>

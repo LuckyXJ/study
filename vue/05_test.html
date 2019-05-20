@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件传值</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div>
+            <input type="text" v-model = 'todoValue'>
+            <button @click = 'handleBtnClick'>提交</button>
+        </div>
+        <ul>
+            <!--父组件向子组件传值通过v-bind绑定数据，同时子组件要用props接收 -->
+            <!-- v-bind：content可简写为：content -->
+            <todo-item  v-bind:content = 'item'
+                        :index = 'index'
+                        v-for = '(item,index) in list' :key='index'
+                        @delete = 'handleItemDelete'><!-- 监听delete事件 -->
+            </todo-item>
+        </ul>
+    </div>
+
+    <script>
+      
+        // 创建局部组件
+        var TodoItem = {
+
+            props : ['content','index'] ,
+            /* template指选择Vue实例要加载哪个模板 */
+            /* 给每个子组件的li绑定click事件 */
+            template : '<li @click = "handleItemClick">{{content}}</li>',
+            methods : {
+                /* 定义handleItemClick方法 */
+                handleItemClick: function(){
+                    /* 点击子组件会向外触发一个delete事件，并传出index参数 */
+                    /* 子组件向父组件传值通过$emit向外触发事件，同时父组件对该事件进行监听 */
+                    this.$emit('delete',this.index);
+                }
+            }
+        }
+
+        var app = new Vue({
+            el: '#root',
+            /* 创建局部组件必须在Vue实例里注册 */
+            components: {
+                TodoItem: TodoItem
+            },
+            data: {
+                'todoValue': '',
+                'list': [],
+            },
+            methods: {
+                /* 定义一个handleBtnClick方法 */
+                handleBtnClick:function(){
+                    this.list.push(this.todoValue);
+                    this.todoValue = '';/* 提交后，文本框内清空上一次输入的内容 */
+                },
+                handleItemDelete: function(index){
+                    this.list.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

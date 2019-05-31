@@ -10,3 +10,4 @@
 ## /javascript
 - [轮播图](http://luckyxj.github.io/study/javascript/按键切换轮播图2.html)
 - [调色板](http://luckyxj.github.io/study/javascript/调色板.html)
+- [无缝滚动](http://luckyxj.github.io/study/javascript/无缝连续滚动.html)

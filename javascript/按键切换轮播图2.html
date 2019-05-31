@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .carousel{
+            width: 520px;
+            height: 280px;
+            margin: 0 auto ;
+            margin-top: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel ul{
+            list-style: none;
+        }
+        .carousel ul li{
+            display: none;
+        }
+        .carousel ul li.current{
+            height: 280px;
+            display: block;
+        }
+        .carousel span{
+            position: absolute;
+            height: 55px;
+            width: 55px;
+            top: 120px;
+            cursor: pointer;
+            opacity: 0.5;
+            /* display: none; */
+        }
+
+        .carousel .leftBtn{
+            background: url(images/taobao/slide-btnL.png);
+            left: 6px;
+        }
+ 
+        .carousel .rightBtn{
+            background: url(images/taobao/slide-btnR.png);
+            right: 6px;
+        }
+        .carousel .circles{
+            height: 15px;
+            width: 200px;
+            bottom: 5px;
+            /* background-color: red; */
+            position: absolute;
+            margin-left: 190px;
+        }
+        .carousel .circles ol{
+            list-style: none;
+        }
+        .carousel .circles ol li{
+            border-radius: 50%;
+            height: 12px;
+            width: 12px;
+            background-color: #ccc;
+            float: left;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .carousel .circles ol li.current{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel" id="carousel">
+        <div class="imagesList" id="imagesList">
+            <ul>
+                <li class="current"><a href="" ><img src="images/taobao/1.webp" alt=""></a></li>
+                <li><a href="" ><img src="images/taobao/2.jpg" alt=""></a></li>
+                <li><a href="" ><img src="images/taobao/3.jpg" alt=""></a></li>
+                <li><a href="" ><img src="images/taobao/4.jpg" alt=""></a></li>
+                <li><a href="" ><img src="images/taobao/5.webp" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="btns" id="btns">
+            <span class="leftBtn" id="leftBtn"></span>
+            <span class="rightBtn" id="rightBtn"></span>
+        </div>
+        <div class="circles" id="circles">
+            <ol>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var img = document.getElementById("imagesList").getElementsByTagName("li");
+        var leftBtn = document.getElementsByClassName("leftBtn")[0];
+        var rightBtn = document.getElementById("rightBtn");
+        var circles = document.getElementById("circles").getElementsByTagName("li");
+        // var carousel = document.getElementById("carousel");
+        // var btns = document.getElementById("btns");
+
+        var img_idx = 0;
+        rightBtn.onclick = function(){
+            img_idx++;
+            if (img_idx > 4) {
+                img_idx = 0
+            }
+                changePic();
+        }
+        
+        leftBtn.onclick = function(){
+            img_idx--;
+            if (img_idx < 0) {
+                img_idx = 4
+            }
+                changePic();
+        }
+
+        for(var i =0 ; i < circles.length ; i++){
+            circles[i].index = i;
+            circles[i].onmouseover = function(){
+                img_idx = this.index;
+                changePic();
+            }
+        }
+
+        function changePic(){
+            for(var i =0 ;i < img.length ; i++){
+                img[i].className = "";
+            }
+            img[img_idx].className = "current";
+
+            for (var i = 0 ; i < circles.length ; i++){
+                circles[i].className = "";
+            }
+            circles[img_idx].className = "current";
+        }
+        
+        carousel.onmouseout = function(){
+            btns.style.display == "none" ? btns.style.display = "block" : btns.style.display = "none";
+        }
+        carousel.onmouseover = function(){
+            btns.style.display == "block" ? btns.style.display = "none" : btns.style.display = "block";
+        }
+
+        setInterval(function(){
+            changePic();
+        },2000)
+    </script>
+</body>
+</html>

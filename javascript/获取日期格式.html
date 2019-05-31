@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function formatDate(dt) {
+      if (!dt) {
+        dt = new Date ()
+      }
+      var year = dt.getFullYear()
+      var month = dt.getMonth() + 1
+      var date = dt.getDate()
+      if (month < 10) {
+        month = "0" + month
+      }
+      if (date < 10) {
+        date = "0" + date
+      }
+      return year + '-' + month + '-' + date
+    }
+    console.log( formatDate(new Date()) )
+  </script>
+</body>
+</html>

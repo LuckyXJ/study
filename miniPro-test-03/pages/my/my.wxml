@@ -1,0 +1,14 @@
+<view class="container">
+    <image src="/images/my/my@bg.png" class="bg"></image>
+    <view class='headView '>
+      <open-data class='icon' mode='aspectFit' type='userAvatarUrl'></open-data>
+      <view class='icon'/>
+    </view>
+
+
+
+    
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view wx:else>请升级微信版本</view>
+    
+</view>

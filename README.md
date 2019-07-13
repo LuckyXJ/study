@@ -1,5 +1,9 @@
 # study
-学习记录
+学习记录  
+## /bootstrap
+- [bootstrap組件](http://luckyxj.github.io/study/bootstrap/component.html)
+- [部分style](http://luckyxj.github.io/study/bootstrap/index.html)
+- [响应式](http://luckyxj.github.io/study/bootstrap/responsive.html)
 ## /css
 - [3d翻页效果](http://luckyxj.github.io/study/css/css-basis/3d翻页效果.html)
 - [旋转正方体](http://luckyxj.github.io/study/css/css-basis/3d旋转正方体.html)

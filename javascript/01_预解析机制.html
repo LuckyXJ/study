@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var name = "xm";
+    var age = 18;
+    function fn(argument) {
+      console.log(name);
+      var name = "xh";
+      var age = 10;
+    }
+    fn();/* 输出undefined */
+
+    /* 
+      如上，代码中有 window（全局）和 fn（局部）两个作用域；
+      先在全局作用域下寻找var 声明和函数 fn，并给变量赋值undefined，
+      window：
+        var name = undefined / xm   预解析之后逐行执行代码，此时xm 赋值给 name变量
+        var age = undefined  / 18
+        逐行执行代码时函数跳过，因为在预解析的时候已经声明了
+        var fn = function() {
+          console.log(name);
+          var name = "xh";
+          var age = 10;
+        }
+      
+      后在局部作用域下找var 
+      fn
+        var name = undefined;   函数内执行console.log(name)，而此时name=undefined，所以输出undefined
+        var age = undefined;
+        var argument = undefined;
+     */
+
+     /* 注意 当变量名与函数名冲突时，保留函数; 函数名冲突则保留后面声明的函数
+      预解析机制不会解析在代码块内的函数，如下
+        if(){
+          function(){}
+        }
+      */
+  </script>
+</body>
+</html>

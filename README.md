@@ -15,5 +15,6 @@
 ## /vue基础
 - [TodoList](http://luckyxj.github.io/study/vue/vue-basis/01_test.html)
 - [vue中css动画原理](http://luckyxj.github.io/study/vue/vue-basis/5-1_test.html)
-## miniPro
+- [vue-Travel小项目](./vue/Travel/README.md)
+## /miniPro
 - [小程序](./miniPro-test-03/README.md)

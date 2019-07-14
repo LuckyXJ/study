@@ -1,5 +1,5 @@
 # study
-学习记录  
+学习记录  (只提供了部分可视化demo展示链接，详情请进入各级文件)
 ## /bootstrap
 - [bootstrap組件](http://luckyxj.github.io/study/bootstrap/component.html)
 - [部分style](http://luckyxj.github.io/study/bootstrap/index.html)
@@ -12,6 +12,8 @@
 - [轮播图](http://luckyxj.github.io/study/javascript/按键切换轮播图2.html)
 - [调色板](http://luckyxj.github.io/study/javascript/调色板.html)
 - [无缝滚动](http://luckyxj.github.io/study/javascript/无缝连续滚动.html)
+- [排他](http://luckyxj.github.io/study/javascript/排他.html)
+- [运动开始与暂停](http://luckyxj.github.io/study/javascript/运动的开始与暂停.html)
 ## /vue基础
 - [TodoList](http://luckyxj.github.io/study/vue/vue-basis/01_test.html)
 - [vue中css动画原理](http://luckyxj.github.io/study/vue/vue-basis/5-1_test.html)

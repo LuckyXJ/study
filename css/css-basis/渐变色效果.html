@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>渐变色</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      background: #f1f1f1;
+    }
+
+    .container{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50% ,-50%);
+      text-align: center;
+    }
+
+    .btn{
+      border: none;
+      margin: 20px;
+      padding: 24px;
+      width: 220px;
+      font-family: "montserrat", sans-serif;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+      background-size: 200%;
+    }
+    .btn1{
+      background-image: linear-gradient(to left,#ffc312,#ee5a24,#ffc312);
+    }
+    .btn2{
+      background-image: linear-gradient(to left,#C4E538,#009432,#C4E538);
+    }
+    .btn3{
+      background-image: linear-gradient(to left,#12CBC4,#0652DD   ,#12CBC4);
+    }
+    .btn4{
+      background-image: linear-gradient(to left,#FDA7DF,#9980FA,#FDA7DF);
+    }
+    .btn:hover{
+      background-position: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn btn1">Hover me</button>
+    <button class="btn btn2">Hover me</button>
+    <button class="btn btn3">Hover me</button>
+    <button class="btn btn4">Hover me</button>    
+  </div>
+</body>
+</html>

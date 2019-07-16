@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>动态背景</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: "montserrat,"sans-serif;
+    }
+    .landing-page{
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .landing-page::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        url(http://s.cn.bing.net/th?id=OHR.SalcombeDevon_ZH-CN5806331292_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp) no-repeat;
+      background-size: cover;
+      opacity: .4;
+      animation: anim 15s linear infinite;
+    }
+    @keyframes anim{
+      50%{
+        transform: scale(1.5);
+      }
+      100%{
+        transform: scale(1)
+      }
+    }
+    .page-content{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 1;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+    .page-content h1{
+      color: #ff7979;
+      text-transform: uppercase;
+      font-size: 50px;
+      font-weight: 900;
+      margin-top: 20px;
+    }
+    .page-content p{
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .page-content a{
+      display: inline-block;
+      text-decoration: none;
+      color: #ff7979;
+      border: 2px solid #ff7979;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      transition: 1s linear;
+    }
+    .page-content a:hover{
+      color: #fff;
+      background: #ff7979;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-page">
+    <div class="page-content">
+      <h1>What's is Flutter</h1>
+      <p>
+        Flutter is Google's portable UI toolkit for crafting beautiful, natively compiled applications for mobile, web, and desktop from a single codebase. Flutter works with existing code, is used by developers and organizations around the world, and is free and open source.
+      </p>
+      <a href="#">Get Started</a>
+    </div>
+  </div>
+</body>
+</html>

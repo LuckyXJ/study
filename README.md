@@ -5,9 +5,11 @@
 - [demo](http://luckyxj.github.io/study/bootstrap/index.html)
 - [自适应](http://luckyxj.github.io/study/bootstrap/responsive.html)
 ## /canvas
-[canvas倒计时](http://luckyxj.github.io/study/canvas/README.md)
+- [canvas倒计时](http://luckyxj.github.io/study/canvas/倒计时特效/index.html)
+- [画直线](http://luckyxj.github.io/study/canvas/canvas画直线.html)
+- [弧线](http://luckyxj.github.io/study/canvas/绘制弧线.html)
 ## /css+html
-- css+html实现的一些有趣的效果：[我就看一眼](http://luckyxj.github.io/study/css/README.md)
+- css+html实现的一些有趣的效果
 - [挂号平台布局](http://luckyxj.github.io/study/css/Registered-project/index.html)
 ## /javascript
 - 练习demo

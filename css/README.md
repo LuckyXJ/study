@@ -3,7 +3,7 @@
   - [3d翻页效果](http://luckyxj.github.io/study/css/css-basis/3d翻页效果.html)
   - [3d悬浮层效果](http://luckyxj.github.io/study/css/css-basis/3d悬浮层效果.html)
   - [3d旋转立方体](http://luckyxj.github.io/study/css/css-basis/3d旋转正方体.html)
-  - [动态背景图](http://luckyxj.github.io/study/css/css-basis/动态背景图.html)
+  - [动态背景图](http://luckyxj.github.io/study/css/css-basis/动态背景效果.html)
   - [动态搜索框](http://luckyxj.github.io/study/css/css-basis/动态搜索框.html)
   - [加载动画](http://luckyxj.github.io/study/css/css-basis/加载动画.html)
   - [渐变色效果](http://luckyxj.github.io/study/css/css-basis/渐变色效果.html)

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 原则一：所有引用类型（数组、对象、函数），都具有对象特性，即可自由拓展属性（null除外）
+    var obj = {
+      "age": 100
+    };
+        obj.a = 100;
+    var arr = [];
+        arr.a = 99;
+    function fn(){};
+        fn.a = 88;
+
+  // 原则二： 所有引用类型（数组、对象、函数），都有一个_proto_(隐式原型)属性，属性值是一个普通对象
+    console.log(obj.__proto__);
+    console.log(arr.__proto__);
+    console.log(fn.__proto__);
+
+  // 原则三: 所有的函数都有一个prototype(显式原型)属性，属性值也是一个普通对象
+    console.log(fn.prototype)
+
+  // 原则四： 所有引用类型(数组、对象、函数)，_proto_属性指向它的构造函数的 prototype 属性值
+    console.log(obj.__proto__ === Object.prototype)
+    console.log(arr.__proto__ === Array.prototype)
+    console.log(fn.__proto__ === Function.prototype)
+
+  // 原则五： 当试图得到一个对象的某个属性时，如果这个对象本身没有该属性，那么回去它的_proto_(即它的构造函数的 prototype )中寻找
+  </script>
+</body>
+</html>

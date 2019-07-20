@@ -9,4 +9,5 @@
   - [渐变色效果](http://luckyxj.github.io/study/css/css-basis/渐变色效果.html)
   - [荧光卡片](http://luckyxj.github.io/study/css/css-basis/荧光卡片.html)
   - [流体布局](http://luckyxj.github.io/study/css/css-basis/流体布局.html)
+  - [动态边框](http://luckyxj.github.io/study/css/css-basis/css创意边框动画.html)
 - 挂号平台

@@ -23,5 +23,5 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-### gif演示
+### gif演示(首次加载，耗时较长，可以等一小会儿)
 <img src="./去哪儿网.gif">

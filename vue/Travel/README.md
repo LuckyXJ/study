@@ -1,6 +1,10 @@
 # travel
 
-> A Vue.js project
+> 基于vue2.5开发的去哪儿网webApp部分功能<br>
+> 技术栈：vuex, vue-router, vue-cli, es6， axios<br>
+> 插件： vue-awesome-swiper, better-scroll, fastclick<br>
+> css预处理器：stylus<br>
+> 包管理工具： webpack
 
 ## Build Setup
 
@@ -19,5 +23,5 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-###### 效果截图
-- ![Travel](./test.png)
+### gif演示
+<iframe width=380 height=680 src="./去哪儿网.gif">

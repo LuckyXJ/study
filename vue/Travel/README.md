@@ -24,4 +24,4 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 ### gif演示
-<iframe width=380 height=680 src="./去哪儿网.gif">
+<img src="./去哪儿网.gif">

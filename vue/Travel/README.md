@@ -1,6 +1,6 @@
 # travel
 
-> 基于vue2.5开发的去哪儿网webApp部分功能<br>
+> 基于vue2.5开发的旅游网webApp部分功能<br>
 > 技术栈：vuex, vue-router, vue-cli, es6， axios<br>
 > 插件： vue-awesome-swiper, better-scroll, fastclick<br>
 > css预处理器：stylus<br>
